@@ -99,8 +99,7 @@ function exec2(file, args /*, options, callback */) {
 
 
 function parseIdentify(input) {
-    input = input.replace("\n\n","\n"); // remove double line breaks
-    var lines = input.split("\n"),
+    var lines = input.split("\n").filter(val => val.trim() != ''), // split lines and remove blank ones
         prop = {},
         props = [prop],
         prevIndent = 0,
